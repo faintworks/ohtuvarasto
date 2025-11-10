@@ -19,6 +19,11 @@ disable=raw-checker-failed,
 
 [FORMAT]
 
+max-line-length=80
+indent-string="    "
 [REFACTORING]
 
 [DESIGN]
+
+max-statements=10
+max-positional-arguments=8
