@@ -36,7 +36,7 @@ class Varasto:
 
         self.saldo -= maara
         return maara
-    # tämä kommentti rikkoo pylint säännöt koska se on aivan liian pitkä ja ylittää 80 merkin rivimaksimin
+
     def __str__(self):
         return f"saldo = {self.saldo}, vielä tilaa {self.paljonko_mahtuu()}"
 
