@@ -39,4 +39,3 @@ class Varasto:
 
     def __str__(self):
         return f"saldo = {self.saldo}, vielä tilaa {self.paljonko_mahtuu()}"
-
