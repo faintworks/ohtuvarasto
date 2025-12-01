@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Ota varastosta - Varasto App{% endblock %}
+
+{% block content %}
+    <h1>Ota varastosta: {{ warehouse.name }}</h1>
+    
+    <div class="warehouse-info">
+        <p><strong>Tilavuus:</strong> {{ "%.2f"|format(warehouse.varasto.tilavuus) }}</p>
+        <p><strong>Nykyinen saldo:</strong> {{ "%.2f"|format(warehouse.varasto.saldo) }}</p>
+        <p><strong>Vapaata tilaa:</strong> {{ "%.2f"|format(warehouse.varasto.paljonko_mahtuu()) }}</p>
+    </div>
+    
+    <form method="POST">
+        <div class="form-group">
+            <label for="maara">Määrä otettavaksi:</label>
+            <input type="number" id="maara" name="maara" step="0.01" min="0" value="10" required>
+        </div>
+        
+        <button type="submit" class="btn btn-secondary">Ota</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Peruuta</a>
+    </form>
+{% endblock %}
