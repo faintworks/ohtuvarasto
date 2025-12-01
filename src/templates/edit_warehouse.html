@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Muokkaa varastoa - Varasto App{% endblock %}
+
+{% block content %}
+    <h1>Muokkaa varastoa</h1>
+    
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">Nimi:</label>
+            <input type="text" id="name" name="name" value="{{ warehouse.name }}" required>
+        </div>
+        
+        <div class="warehouse-info">
+            <p><strong>Tilavuus:</strong> {{ "%.2f"|format(warehouse.varasto.tilavuus) }}</p>
+            <p><strong>Saldo:</strong> {{ "%.2f"|format(warehouse.varasto.saldo) }}</p>
+            <p><strong>Vapaata tilaa:</strong> {{ "%.2f"|format(warehouse.varasto.paljonko_mahtuu()) }}</p>
+        </div>
+        
+        <button type="submit" class="btn">Tallenna muutokset</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Peruuta</a>
+    </form>
+{% endblock %}
